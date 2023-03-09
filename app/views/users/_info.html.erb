@@ -24,6 +24,14 @@
       <% end %>
     </th>
   </tr>
+  <tr>
+    <th>chat</th>
+    <th>
+      <%= link_to 'chatを始める', chat_path(chat.id) do %>
+      <%= user.chats.count %>
+      <% end %>
+    </th>
+  </tr>
 </table>
 
 <div class='row'>

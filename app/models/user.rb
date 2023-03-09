@@ -16,6 +16,10 @@ class User < ApplicationRecord
   # 一覧画面で使う
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
+  
+  #ユーザー同士のチャット用のアソシエーション
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction,  length: { maximum: 50 }
